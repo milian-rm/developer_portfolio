@@ -1,0 +1,101 @@
+.line-sidebar {
+  --accent-color: #a855f7;
+  --text-color: #c4c4c4;
+  --marker-color: #6c6c6c;
+  --marker-length: 60px;
+  --marker-gap: 0px;
+  --tick-scale: 0.5;
+  --max-shift: 30px;
+  --item-gap: 20px;
+  --font-size: 1.1rem;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.line-sidebar--markers {
+  padding-left: calc(var(--marker-length) + var(--marker-gap));
+}
+
+.line-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--item-gap);
+}
+
+.line-sidebar__item {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Amplía el área de hover para que sea más fácil acertar */
+.line-sidebar__item::before {
+  content: '';
+  position: absolute;
+  inset: -6px -48px;
+}
+
+.line-sidebar__label {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  font-size: var(--font-size);
+  line-height: 1.2;
+  color: var(--text-color);
+  transform: translateX(0);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.line-sidebar__item:hover .line-sidebar__label,
+.line-sidebar__item[aria-current='true'] .line-sidebar__label {
+  color: var(--accent-color);
+  transform: translateX(var(--max-shift));
+}
+
+.line-sidebar__index {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  margin-right: 0.6rem;
+  font-size: 0.85em;
+  opacity: 0.55;
+  transition: opacity 0.25s ease;
+}
+
+.line-sidebar__item:hover .line-sidebar__index,
+.line-sidebar__item[aria-current='true'] .line-sidebar__index {
+  opacity: 1;
+}
+
+.line-sidebar__marker {
+  position: absolute;
+  top: 50%;
+  left: calc(-1 * var(--marker-length) - var(--marker-gap));
+  height: 1px;
+  width: var(--marker-length);
+  background-color: var(--marker-color);
+  transform-origin: left center;
+  transform: translateY(-50%) scaleX(0.7);
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.line-sidebar__item:hover .line-sidebar__marker,
+.line-sidebar__item[aria-current='true'] .line-sidebar__marker {
+  background-color: var(--accent-color);
+  transform: translateY(-50%) scaleX(1.2);
+}
+
+/* Tick estático centrado en el espacio entre dos items */
+.line-sidebar--markers .line-sidebar__item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: calc(100% + var(--item-gap) / 2);
+  left: calc(-1 * var(--marker-length) - var(--marker-gap));
+  height: 1px;
+  width: calc(var(--marker-length) * var(--tick-scale));
+  background-color: var(--marker-color);
+  opacity: 0.5;
+  transform: translateY(-50%);
+}
