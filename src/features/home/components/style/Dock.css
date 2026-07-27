@@ -55,3 +55,10 @@
   color: #fff;
   transform: translateX(-50%);
 }
+
+@media (max-width: 640px) {
+  .dock-panel {
+    gap: 0.5rem;
+    padding: 0 0.35rem 0.4rem;
+  }
+}

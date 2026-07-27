@@ -25,6 +25,8 @@ body,
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .hero-bg {
@@ -49,7 +51,7 @@ body,
   font-size: clamp(2.5rem, 6vw, 5rem);
   line-height: 1.1;
   margin: 0;
-  max-width: 600px;
+  max-width: min(600px, 100%);
 }
 
 .scroll-indicator {
@@ -74,4 +76,24 @@ body,
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(8px); }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
 }

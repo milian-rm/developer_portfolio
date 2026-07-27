@@ -61,3 +61,17 @@
   mask-image: linear-gradient(to bottom, transparent 0%, black 16%, black 84%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 16%, black 84%, transparent 100%);
 }
+
+@media (max-width: 768px) {
+  .option-wheel {
+    --ow-font-size: 2.2rem;
+    --ow-inset: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .option-wheel {
+    --ow-font-size: 1.6rem;
+    --ow-inset: 30px;
+  }
+}

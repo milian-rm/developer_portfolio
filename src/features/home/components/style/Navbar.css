@@ -59,3 +59,9 @@
   .navbar { height: 78px; }
   .navbar .navbar-dock.dock-panel { gap: 0.5rem; padding-inline: 0.35rem; }
 }
+
+@media (max-width: 480px) {
+  .navbar { height: 68px; }
+  .navbar .navbar-dock.dock-panel { top: 0.6rem; }
+  .navbar-dock .dock-icon svg { width: 18px; height: 18px; }
+}

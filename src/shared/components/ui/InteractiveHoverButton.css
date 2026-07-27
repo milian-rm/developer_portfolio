@@ -130,3 +130,10 @@
 .ihb--secondary .ihb__icon img {
   filter: brightness(0) invert(1);
 }
+
+@media (max-width: 480px) {
+  .ihb {
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+  }
+}
