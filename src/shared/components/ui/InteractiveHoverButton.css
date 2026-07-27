@@ -1,0 +1,132 @@
+.ihb {
+  position: relative;
+  display: inline-grid;
+  grid-template-areas: 'stack';
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  width: fit-content;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(125, 190, 255, 0.4);   /* ← quitar */
+  box-shadow: inset 0 0 0 1px rgba(125, 190, 255, 0.4); /* ← agregar */
+  background-color: rgba(18, 15, 23, 0.55);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #e8eefc;
+  text-decoration: none;
+  transform: translateZ(0); 
+  backface-visibility: hidden;
+}
+
+/* Ambas capas ocupan la misma celda del grid: el botón se dimensiona
+   según la más ancha de las dos, así ninguna se corta */
+.ihb__row,
+.ihb__reveal {
+  grid-area: stack;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+
+.ihb__row {
+  position: relative;
+  z-index: 1;
+}
+
+.ihb__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #7dbeff;
+  flex-shrink: 0;
+  transition: transform 0.45s ease;
+}
+
+.ihb:hover .ihb__dot {
+  transform: scale(60);
+}
+
+.ihb__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.45s ease;
+}
+
+.ihb__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ihb:hover .ihb__icon {
+  transform: scale(0);
+}
+
+.ihb__idle-text {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.ihb:hover .ihb__idle-text {
+  transform: translateX(1.5rem);
+  opacity: 0;
+}
+
+.ihb__reveal {
+  position: relative;
+  z-index: 2;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.ihb:hover .ihb__reveal {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.ihb__arrow {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.ihb__arrow--reverse {
+  transform: scaleX(-1);
+}
+
+/* Variante "Volver": todo entra/sale por la izquierda */
+.ihb--reverse:hover .ihb__idle-text {
+  transform: translateX(-1.5rem);
+}
+
+.ihb--reverse .ihb__reveal {
+  transform: translateX(-100%);
+}
+
+.ihb--reverse:hover .ihb__reveal {
+  transform: translateX(0);
+}
+
+.ihb--primary {
+  box-shadow: inset 0 0 0 1px rgba(125, 190, 255, 0.55);
+  background-color: rgba(125, 190, 255, 0.1);
+}
+
+.ihb--secondary {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.ihb--secondary .ihb__icon img {
+  filter: brightness(0) invert(1);
+}

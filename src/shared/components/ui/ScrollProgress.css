@@ -1,0 +1,15 @@
+.scroll-progress {
+  position: fixed;
+  top: 90px; /* justo debajo del navbar-dock */
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform-origin: 0%;
+  background: linear-gradient(90deg, #7dbeff 0%, #aa3bff 100%);
+  z-index: 90;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .scroll-progress { top: 78px; }
+}

@@ -1,0 +1,18 @@
+.smooth-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  translate: -6px -4px;
+  will-change: transform;
+}
+
+body.has-smooth-cursor,
+body.has-smooth-cursor * {
+  cursor: none !important;
+}
+
+@media (pointer: coarse) {
+  .smooth-cursor { display: none; }
+}
