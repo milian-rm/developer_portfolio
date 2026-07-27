@@ -1,13 +1,18 @@
 import { Routes, Route } from 'react-router-dom'
+import MainLayout from './shared/components/MainLayout.jsx'
 import HomeView from './features/home/components/HomeView.jsx'
-import DetailsView from './features/details/components/DetailsView.jsx'
+import SmoothCursor from './shared/components/ui/SmoothCursor.jsx'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomeView />} />
-      <Route path="/detalles" element={<DetailsView />} />
-    </Routes>
+    <>
+      <SmoothCursor />
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<HomeView />} />
+        </Route>
+      </Routes>
+    </>
   )
 }
 
