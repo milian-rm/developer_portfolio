@@ -1,6 +1,7 @@
 import LightRays from './ui/LightRays';
 import ProfileCard from './ui/ProfileCard';
 import TextType from './ui/TextType';
+import profilePhoto from '../../../assets/profilePhoto.jpeg';
 import './style/HomeView.css';
 
 const HomeView = () => {
@@ -21,7 +22,7 @@ const HomeView = () => {
 
                 <div className="hero-content">
                     <ProfileCard
-                        avatarUrl="/src/assets/profilePhoto.jpeg"
+                        avatarUrl={profilePhoto}
                         name="Roberto Milián"
                         title="Desarrollador FullStack Jr."
                         handle="milian-rm"

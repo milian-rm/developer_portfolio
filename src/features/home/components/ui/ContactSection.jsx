@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import InteractiveHoverButton from '../../../../shared/components/ui/InteractiveHoverButton';
+import avatar from '../../../../assets/avatar.png';
 import '../style/ContactSection.css';
 
 const DEVICON_BASE = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/';
@@ -119,7 +120,7 @@ const ContactSection = () => (
         >
           <div className="contact-avatar__glow" />
           <img
-            src="/src/assets/avatar.png"
+            src={avatar}
             alt="Foto de perfil"
             className="contact-avatar__img"
             loading="lazy"

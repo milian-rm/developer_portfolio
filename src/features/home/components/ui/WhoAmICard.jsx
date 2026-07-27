@@ -2,14 +2,13 @@ import { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import '../style/WhoAmICard.css';
 import InteractiveHoverButton from '../../../../shared/components/ui/InteractiveHoverButton';
+import foto1 from '../../../../assets/foto-1.jpeg';
+import foto2 from '../../../../assets/foto-2.jpeg';
+import foto3 from '../../../../assets/foto-3.jpeg';
+import foto4 from '../../../../assets/foto-4.jpeg';
+import foto5 from '../../../../assets/foto-5.jpeg';
 
-const GALLERY_PHOTOS = [
-  '/src/assets/foto-1.jpeg',
-  '/src/assets/foto-2.jpeg',
-  '/src/assets/foto-3.jpeg',
-  '/src/assets/foto-4.jpeg',
-  '/src/assets/foto-5.jpeg'
-];
+const GALLERY_PHOTOS = [foto1, foto2, foto3, foto4, foto5];
 
 // TODO: reemplaza por tus datos reales
 const QUICK_FACTS = [

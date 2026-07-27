@@ -2,6 +2,22 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'motion/react';
 import InteractiveHoverButton from '../../../../shared/components/ui/InteractiveHoverButton';
+import bank1 from '../../../../assets/bank-1.jpeg';
+import bank2 from '../../../../assets/bank-2.jpeg';
+import bank3 from '../../../../assets/bank-3.jpeg';
+import bank4 from '../../../../assets/bank-4.jpeg';
+import bank5 from '../../../../assets/bank-5.jpeg';
+import rs1 from '../../../../assets/rs-1.jpeg';
+import rs2 from '../../../../assets/rs-2.jpeg';
+import rs3 from '../../../../assets/rs-3.jpeg';
+import rs4 from '../../../../assets/rs-4.jpeg';
+import rs5 from '../../../../assets/rs-5.jpeg';
+import rs6 from '../../../../assets/rs-6.jpeg';
+import rs7 from '../../../../assets/rs-7.jpeg';
+import rs8 from '../../../../assets/rs-8.jpeg';
+import wd1 from '../../../../assets/wd-1.jpeg';
+import wd2 from '../../../../assets/wd-2.jpeg';
+import wd3 from '../../../../assets/wd-3.jpeg';
 import '../style/ProjectsPanel.css';
 
 const DEVICON_BASE = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/';
@@ -18,48 +34,26 @@ const ExternalLinkIcon = () => (
     </svg>
 );
 
-// TODO: reemplaza por tus proyectos reales (imágenes, textos y enlaces)
 const PROJECTS = [
     {
         title: 'KinalBank',
         description: 'API RESTful para la gestión bancaria: cuentas, tarjetas, transacciones y deudas. Desarrollado con Node.js, Express, MongoDB y Mongoose, incluyendo autenticación JWT y control de roles.',
-        images: [
-            '/src/assets/bank-1.jpeg',
-            '/src/assets/bank-2.jpeg',
-            '/src/assets/bank-3.jpeg',
-            '/src/assets/bank-4.jpeg',
-            '/src/assets/bank-5.jpeg',
-        ],
-        deployUrl: 'https://proyecto1.example.com',
-        repoUrl: 'https://github.com/milian-rm/proyecto1'
+        images: [bank1, bank2, bank3, bank4, bank5],
+        deployUrl: 'https://client-user-bank-system.vercel.app/',
+        repoUrl: 'https://github.com/orgs/KinalBank/repositories'
     },
     {
         title: 'Kinal Fried Chicken',
         description: 'Sistema de administración de restaurante con autenticación, inventario, menú, reservaciones, empleados, ventas y facturación. Construido con Node.js, Express, MongoDB, PostgreSQL, React y Docker.',
-        images: [
-            '/src/assets/rs-1.jpeg',
-            '/src/assets/rs-2.jpeg',
-            '/src/assets/rs-3.jpeg',
-            '/src/assets/rs-4.jpeg',
-            '/src/assets/rs-5.jpeg',
-            '/src/assets/rs-6.jpeg',
-            '/src/assets/rs-7.jpeg',
-            '/src/assets/rs-8.jpeg',
-
-        ],
-        deployUrl: 'https://proyecto2.example.com',
-        repoUrl: 'https://github.com/milian-rm/proyecto2'
+        images: [rs1, rs2, rs3, rs4, rs5, rs6, rs7, rs8],
+        deployUrl: 'https://kinal-fried-chicken-user.web.app/',
+        repoUrl: 'https://github.com/orgs/restaurantSystemKFC/repositories'
     },
     {
-        title: 'Nombre del Proyecto 3',
-        description: 'Breve descripción de qué hace el proyecto, con qué tecnologías se construyó y qué problema resuelve.',
-        images: [
-            '/src/assets/projects/proyecto3-1.png',
-            '/src/assets/projects/proyecto3-2.png',
-            '/src/assets/projects/proyecto3-3.png'
-        ],
-        deployUrl: 'https://proyecto3.example.com',
-        repoUrl: 'https://github.com/milian-rm/proyecto3'
+        title: 'WorkDispatch',
+        description: 'Plataforma marketplace que conecta trabajadores del sector informal con clientes. Arquitectura de microservicios con .NET 8, Node.js, Express, MongoDB, PostgreSQL, React, React Native y Expo. Incluye panel administrativo, app móvil y autenticación JWT con verificación por email.',
+        images: [wd1, wd2, wd3],
+        repoUrl: 'https://github.com/orgs/ProjectWorkDispatch/repositories'
     }
 ];
 
@@ -230,16 +224,18 @@ const ProjectCard = ({ project, index, onOpenLightbox }) => (
             <p className="project-card__desc">{project.description}</p>
 
             <div className="project-card__links">
-                <InteractiveHoverButton
-                    as="a"
-                    href={project.deployUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="ihb--primary"
-                    icon={<ExternalLinkIcon />}
-                >
-                    Ver despliegue
-                </InteractiveHoverButton>
+                {project.deployUrl && (
+                    <InteractiveHoverButton
+                        as="a"
+                        href={project.deployUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="ihb--primary"
+                        icon={<ExternalLinkIcon />}
+                    >
+                        Ir al Proyecto
+                    </InteractiveHoverButton>
+                )}
                 <InteractiveHoverButton
                     as="a"
                     href={project.repoUrl}
